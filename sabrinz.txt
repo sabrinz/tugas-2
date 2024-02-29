@@ -1,0 +1,107 @@
+NAMA :M SABRI NURZAMAN
+NIM ; 20230040147
+KELAS ; TI23F
+
+1. Membedakan bilangan ganjil atau genap contoh output: Angka 7 adalah bilangan ganjil
+
+def ganjil_genap(angka):
+  """
+  Fungsi untuk menentukan apakah suatu bilangan ganjil atau genap.
+
+  Args:
+    angka: Bilangan yang akan diperiksa.
+
+  Returns:
+    String yang menyatakan apakah bilangan ganjil atau genap.
+  """
+  if angka % 2 == 0:
+    return f"Angka {angka} adalah bilangan genap."
+  else:
+    return f"Angka {angka} adalah bilangan ganjil."
+
+# Contoh penggunaan
+angka = 7
+hasil = ganjil_genap(angka)
+print(hasil)
+
+
+2. Menghitung uang yang harus dibayar untuk membeli mangga dengan kriteria
+jika beli 2 kilo atau kurang harga perkilonya 20.000
+jika beli lebih dari 2 kilo sampe dengan 5 kilo harga perkilonya 18.000
+jika beli lebih dari 5 kilo harga perkilonya 16.000
+Berapa banyak yang harus dibayar jika beli 10 kilo?
+contoh output: Harga yang harus dibayar untuk membeli 10 kilo mangga adalah 160.000
+
+def harga_mangga(berat):
+  """
+  Fungsi untuk menghitung harga mangga berdasarkan beratnya.
+
+  Args:
+    berat: Berat mangga dalam kilogram.
+
+  Returns:
+    Harga mangga yang harus dibayar.
+  """
+  if berat <= 2:
+    harga = 20000 * berat
+  elif berat <= 5:
+    harga = 18000 * berat
+  else:
+    harga = 16000 * berat
+
+  return harga
+
+# Contoh penggunaan
+berat = 10
+total_harga = harga_mangga(berat)
+print(f"Harga yang harus dibayar untuk membeli {berat} kilo mangga adalah {total_harga}")
+
+
+3. 3. Menentukan kriteria kelulusan berdasarkan aturan dibawah ini:
+Nilai yang di input ada 5 : English, MTK, Indo, IPA, IPS
+A. Jika Rata-rata nilai 3 Mata pelajaran (English, MTK, dan Indo) >= 75, maka dia lulus
+B. Jika rata-rata semua pelajaran >=70 dia lulus
+C. Jika Nilai English dan MTK lebih 90 maka dia lulus meskipun nilai yang lain 0
+
+def kelulusan(nilai):
+  """
+  Fungsi untuk menentukan apakah seorang siswa lulus berdasarkan nilai-nilainya.
+
+  Args:
+    nilai: Dictionary yang berisi nilai-nilai siswa.
+
+  Returns:
+    String yang menyatakan apakah siswa lulus atau tidak.
+  """
+
+  # Menghitung rata-rata nilai 3 mata pelajaran (English, MTK, dan Indo)
+  rata_tiga = (nilai["English"] + nilai["MTK"] + nilai["Indo"]) / 3
+
+  # Menghitung rata-rata semua pelajaran
+  rata_semua = sum(nilai.values()) / len(nilai)
+
+  # Memeriksa apakah siswa memenuhi kriteria kelulusan
+  if rata_tiga >= 75:
+    return "Lulus karena rata-rata nilai 3 mata pelajaran >= 75."
+  elif rata_semua >= 70:
+    return "Lulus karena rata-rata semua pelajaran >= 70."
+  elif nilai["English"] > 90 and nilai["MTK"] > 90:
+    return "Lulus karena nilai English dan MTK lebih dari 90."
+  else:
+    return "Tidak Lulus."
+
+# Contoh penggunaan
+nilai = {
+  "English": 80,
+  "MTK": 95,
+  "Indo": 70,
+  "IPA": 60,
+  "IPS": 85,
+}
+
+hasil = kelulusan(nilai)
+print(hasil)
+
+
+
+
